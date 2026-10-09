@@ -230,8 +230,8 @@ dependencies {
         exclude group: 'io.inji', module: 'inji-openid4vp-aar'
     }
     implementation("react-native-nprime-face") {
-        exclude group: 'org.opencv', module: 'opencv-android'
-    }
+    exclude group: 'org.opencv'
+}
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("io.mosip:vcverifier-aar:1.6.0") {
         exclude group: 'org.bouncycastle', module: 'bcpkix-jdk15on'
