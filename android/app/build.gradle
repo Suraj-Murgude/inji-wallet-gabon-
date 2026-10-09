@@ -229,6 +229,7 @@ dependencies {
         exclude group: 'com.augustcellars.cose', module: 'cose-java'
         exclude group: 'io.inji', module: 'inji-openid4vp-aar'
     }
+    // FIX: Updated nprime SDK dependency with correct package name and version
     implementation("@nprime/face-sdk-react-native:0.5.0") {
         exclude group: 'org.opencv', module: 'opencv-android'
     }
