@@ -256,6 +256,11 @@ android {
         pickFirst 'lib/armeabi-v7a/liblog.so'
         pickFirst 'lib/x86/liblog.so'
         pickFirst 'lib/x86_64/liblog.so'
+        // Exclude duplicate OpenCV libraries
+        exclude 'lib/arm64-v8a/libopencv_java4.so'
+        exclude 'lib/armeabi-v7a/libopencv_java4.so'
+        exclude 'lib/x86/libopencv_java4.so'
+        exclude 'lib/x86_64/libopencv_java4.so'
         resources {
             excludes += "META-INF/*"
             excludes += "META-INF/spring/aot.factories"
