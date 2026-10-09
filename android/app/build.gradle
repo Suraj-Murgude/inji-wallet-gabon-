@@ -182,21 +182,23 @@ android {
         }
     }
 
-    packagingOptions {
-        // Fix duplicate native libraries
-        pickFirst 'lib/arm64-v8a/liblog.so'
-        pickFirst 'lib/armeabi-v7a/liblog.so'
-        pickFirst 'lib/x86/liblog.so'
-        pickFirst 'lib/x86_64/liblog.so'
-
-        pickFirst 'lib/arm64-v8a/libopencv_java4.so'
-        pickFirst 'lib/armeabi-v7a/libopencv_java4.so'
-        pickFirst 'lib/x86/libopencv_java4.so'
-        pickFirst 'lib/x86_64/libopencv_java4.so'
-
-        // Keep your exclusions
-        exclude 'META-INF/*'
-        exclude 'META-INF/spring/aot.factories'
+    packaging {
+        resources {
+            excludes += [
+                "META-INF/*",
+                "META-INF/spring/aot.factories"
+            ]
+        }
+        pickFirsts += [
+            'lib/arm64-v8a/liblog.so',
+            'lib/armeabi-v7a/liblog.so',
+            'lib/x86/liblog.so',
+            'lib/x86_64/liblog.so',
+            'lib/arm64-v8a/libopencv_java4.so',
+            'lib/armeabi-v7a/libopencv_java4.so',
+            'lib/x86/libopencv_java4.so',
+            'lib/x86_64/libopencv_java4.so'
+        ]
     }
 }
 
@@ -226,6 +228,9 @@ dependencies {
         exclude group: 'com.google.crypto.tink', module: 'tink'
         exclude group: 'com.augustcellars.cose', module: 'cose-java'
         exclude group: 'io.inji', module: 'inji-openid4vp-aar'
+    }
+    implementation("react-native-nprime-face") {
+        exclude group: 'org.opencv', module: 'opencv-android'
     }
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("io.mosip:vcverifier-aar:1.6.0") {
